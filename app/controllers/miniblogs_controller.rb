@@ -9,7 +9,7 @@ class MiniblogsController < ApplicationController
 
     def create
         Miniblog.create(miniblog_params)
-        redirect_to new_miniblog_path
+        redirect_to miniblogs_path,notice:"ミニブログを作成しました！"
     end
 
     def edit
