@@ -8,11 +8,26 @@ class MiniblogsController < ApplicationController
     end
 
     def create
-        Miniblog.create(params.require(:miniblog).permit(:content))
+        Miniblog.create(miniblog_params)
         redirect_to new_miniblog_path
     end
 
     def edit
-        @miniblog=Minilog.find(params[:id])
+        @miniblog=Miniblog.find(params[:id])
+    end
+
+    def update
+        @miniblog = Miniblog.find(params[:id])
+        if @miniblog.update(miniblog_params)
+        redirect_to miniblogs_path, notice: "ミニブログを編集しました！"
+        else
+        render 'edit'
+        end
+    end
+
+    private
+
+    def miniblog_params
+        params.require(:miniblog).permit(:content)
     end
 end
