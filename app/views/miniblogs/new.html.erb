@@ -1,5 +1,19 @@
 <%= form_with(model: @miniblog, local: true) do |form| %>
 
+
+  <% if @miniblog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @miniblog.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @miniblog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <div class="blog_title">
     <%= form.label :content %>
     <%= form.text_field :content %>

@@ -8,8 +8,12 @@ class MiniblogsController < ApplicationController
     end
 
     def create
-        Miniblog.create(miniblog_params)
+        @miniblog=Miniblog.new(miniblog_params)
+        if @miniblog.save
         redirect_to miniblogs_path,notice:"ミニブログを作成しました！"
+        else
+            render'new'
+        end
     end
 
     def edit
