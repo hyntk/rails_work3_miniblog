@@ -1,4 +1,6 @@
 class MiniblogsController < ApplicationController
+    before_action :set_miniblog,only: [:edit, :update]
+
     def index
         @miniblogs=Miniblog.all
     end
@@ -17,11 +19,9 @@ class MiniblogsController < ApplicationController
     end
 
     def edit
-        @miniblog=Miniblog.find(params[:id])
     end
 
     def update
-        @miniblog = Miniblog.find(params[:id])
         if @miniblog.update(miniblog_params)
         redirect_to miniblogs_path, notice: "ミニブログを編集しました！"
         else
@@ -33,5 +33,9 @@ class MiniblogsController < ApplicationController
 
     def miniblog_params
         params.require(:miniblog).permit(:content)
+    end
+
+    def set_miniblog
+        @miniblog=Miniblog.find(params[:id])
     end
 end
