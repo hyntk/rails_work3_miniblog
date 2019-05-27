@@ -1,5 +1,5 @@
 class MiniblogsController < ApplicationController
-    before_action :set_miniblog,only: [:edit, :update]
+    before_action :set_miniblog,only: [:edit, :update,:destroy]
 
     def index
         @miniblogs=Miniblog.all
@@ -27,6 +27,11 @@ class MiniblogsController < ApplicationController
         else
         render 'edit'
         end
+    end
+
+    def destroy
+        @miniblog.destroy
+        redirect_to miniblogs_path, notice:"ミニブログを削除しました！"
     end
 
     private

@@ -11,6 +11,7 @@
   <tr>
     <td><%= blog.content %></td>
     <td><%=link_to"ミニブログを編集する",edit_miniblog_path(blog.id)%></td>
+    <td><%= link_to 'ミニブログを削除する', miniblog_path(blog.id), method: :delete,data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 <% end %>
 </table>
