@@ -1,10 +1,3 @@
-<%= form_with(model: @miniblog, local: true) do |form| %>
+  <h2>ミニブログを編集する</h2>
 
-  <div class="blog_title">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-  <%= form.submit %>
-<% end %>
-
-<%= link_to 'ミニブログ一覧画面へ移動する', miniblogs_path %>
+  <%= render 'form' %>
