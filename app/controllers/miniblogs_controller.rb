@@ -11,4 +11,8 @@ class MiniblogsController < ApplicationController
         Miniblog.create(params.require(:miniblog).permit(:content))
         redirect_to new_miniblog_path
     end
+
+    def edit
+        @miniblog=Minilog.find(params[:id])
+    end
 end

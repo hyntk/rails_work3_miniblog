@@ -8,6 +8,7 @@
 <% @miniblogs.each do |blog| %>
   <tr>
     <td><%= blog.content %></td>
+    <td><%=link_to"ミニブログを編集する",edit_miniblog_path(blog.id)%></td>
   </tr>
 <% end %>
 </table>
