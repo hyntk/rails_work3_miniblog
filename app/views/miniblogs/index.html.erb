@@ -1,1 +1,15 @@
-test
+<h1>ミニブログ一覧</h1>
+
+<table>
+  <tr>
+    <th>ミニブログ</th>
+  </tr>
+
+<% @miniblogs.each do |blog| %>
+  <tr>
+    <td><%= blog.content %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '新しくミニブログを投稿する', new_miniblog_path %>
