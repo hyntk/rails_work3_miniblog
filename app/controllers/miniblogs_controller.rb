@@ -6,7 +6,11 @@ class MiniblogsController < ApplicationController
     end
 
     def new
-        @miniblog=Miniblog.new
+        if params[:back]
+            @miniblog=Miniblog.new(miniblog_params)
+        else
+            @miniblog=Miniblog.new
+        end
     end
 
     def create
@@ -36,6 +40,7 @@ class MiniblogsController < ApplicationController
 
     def confirm
         @miniblog=Miniblog.new(miniblog_params)
+        render :new if @miniblog.invalid?
     end
 
     private
