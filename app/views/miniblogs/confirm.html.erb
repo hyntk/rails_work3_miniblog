@@ -1,8 +1,15 @@
 <h3>以下の内容で、投稿します。よろしいですか？</h3>
 
+
 <%= form_with(model: @miniblog, url: miniblogs_path, local: true) do |form| %>
   <%= form.hidden_field :content %>
 
+
   <p>本文:<%= @miniblog.content %></p>
   <%= form.submit  "登録する" %>
+<% end %>
+
+<%= form_with(model: @miniblog, url: new_miniblog_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.submit "戻る" ,name: 'back'%>
 <% end %>
