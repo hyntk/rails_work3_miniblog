@@ -34,6 +34,10 @@ class MiniblogsController < ApplicationController
         redirect_to miniblogs_path, notice:"ミニブログを削除しました！"
     end
 
+    def confirm
+        @miniblog=Miniblog.new(miniblog_params)
+    end
+
     private
 
     def miniblog_params
