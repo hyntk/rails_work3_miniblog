@@ -14,4 +14,4 @@
 //= require turbolinks
 //= erquire jquery/dist/jquery.js
 //= require_tree .
-//= require bootstrap/dist/js/bootstrap.min
+//= require bootstrap-sprockets
