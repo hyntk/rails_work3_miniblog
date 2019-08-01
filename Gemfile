@@ -55,3 +55,5 @@ gem 'dotenv-rails' # 開発環境で環境変数を操作するのに必要
     gem 'capistrano3-unicorn'
     # 以下省略
   end
+
+gem 'bootstrap-sass', '~> 3.1.1'
